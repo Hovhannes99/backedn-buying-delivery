@@ -2,16 +2,16 @@ const nodemailer = require("nodemailer");
 
 const transport = nodemailer.createTransport(
     {
-        host: "smtp.gmail.com",
+        host: "smtp.mail.ru",
         port: 465,
         secure: true,
         auth: {
-            user: "hovoohanjanyan9@gmail.com",
-            pass: "1999RONALDO"
+            user: "gurgen.karapetyan.85@bk.ru",
+            pass: "H1mjzL098xRYeSLJW4Bt"
         }
     },
     {
-        from: 'G-group, welcome < hovoohanjanyan9@gmail.com >',
+        from: 'G-group, welcome <gurgen.karapetyan.85@bk.ru>',
     }
 )
 
@@ -19,8 +19,10 @@ const mailer = message => {
     transport.sendMail(message, (err, info)=>{
         if (err){
             console.log(err, "Error")
+           return err
         }else {
             console.log(info, "infooooo")
+
         }
     })
 }

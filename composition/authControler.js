@@ -1,37 +1,32 @@
 const User = require('../models/User')
 const Role = require('../models/Role')
-const bcrypt = require('bcryptjs');
-const { validationResult } = require('express-validator')
-const json = require("express");
+const bcrypt = require('bcryptjs')
 const mailer = require("./nodemailer")
 
 class authController {
     async signUp(req, res) {
         try{
-         const errors = validationResult(req)
-         if (!errors.isEmpty() || !req.body.email || !req.body.pass){
-             return res.status(400).json({message:"Errors time of registration"}, errors)
-         }
+
          const {username, password, email} = req.body
-         const candidate = await User.findOne({username});
+         const candidate = await User.findOne({email});
          if (candidate){
              return res.status(400).json({message: "User already exist"})
          }
-         const userRole = await Role.findOne({value:"ADMIN"})
+         // const userRole = await Role.findOne({value:"ADMIN"})
          const hashPassword = bcrypt.hashSync(password, 8);
          const user = new User({username, password: hashPassword,email, role:"USER"});
          await user.save()
          const message = {
-             from: "G-group < hovoohanjanyan9@gmail.com >",
-             req: req.body.email,
+             from: "gurgen.karapetyan.85@bk.ru",
+             to: email,
              subscribe:"G-group, Congratulation you are registered",
-             text:`This is your email and pass 
-             Login: ${req.body.email} ,
-             Pass: ${req.body.pass}
-             `
+             text:`This is your email and pass
+             Login: ${email} ,
+             Pass: ${password}
+            `,
+             html:"<img src={'../images/g-logo.png'} alt='G-group'/>",
          }
-         mailer(message)
-         return  res.json({message:"Registration successfully"})
+        mailer(message);
 
         }catch (e){
             console.log(e, "awdawd");
