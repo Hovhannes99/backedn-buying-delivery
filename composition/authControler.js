@@ -17,19 +17,17 @@ class authController {
          const user = new User({username, password: hashPassword,email, role:"USER"});
          await user.save()
          const message = {
-             from: "gurgen.karapetyan.85@bk.ru",
+             from: "ggroupmarcket1001@gmail.com",
              to: email,
              subscribe:"G-group, Congratulation you are registered",
-             text:`This is your email and pass
+             text:`G-group, this is your email and pass
              Login: ${email} ,
              Pass: ${password}
             `,
-             html:"<img src={'../images/g-logo.png'} alt='G-group'/>",
          }
-        mailer(message);
+        mailer(message, res);
 
         }catch (e){
-            console.log(e, "awdawd");
             res.status(400).json({message:"Sign up Error"})
         }
     }
@@ -37,9 +35,7 @@ class authController {
         try{
 
         }catch (e){
-            console.log(e)
             res.status(400).json({message:"Sign in Error"})
-
         }
     }
     async getUsers(req, res){
