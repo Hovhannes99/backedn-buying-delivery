@@ -18,11 +18,9 @@ const transport = nodemailer.createTransport(
 const mailer = (message,  res) => {
     transport.sendMail(message, (err, info)=>{
         if (err){
-            console.log(err, "Error")
-           return  res.status(400).json({message:"Sign up Error"})
+           return  res.status(400).json({message:"Sign up Error", err})
         }else {
-            console.log(info, "infooooo")
-            return  res.status(200).json({message:"Registration successfully "})
+            return  res.status(200).json({message:"Registration successfully ", info})
 
         }
     })

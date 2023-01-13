@@ -1,14 +1,14 @@
 const Router   = require('express')
 const router =   new Router()
 const controller = require('../composition/authControler');
-const {check} = require("express-validator")
+const verifyUser = require('../composition/user/verifyUser')
+const validation = require("../middleware/signUpVerify")
 
-router.post('/signUp', [
-    check("username", "This row can't be empty").notEmpty(),
-    check("email", "This row can't be empty").isEmail(),
-    check("password", "Password will be more than 8 and less than 12 letters").isLength({min:8,max:12}),
-], controller.signUp);
-router.post('/signIn', controller.signIn)
-router.get('/users', controller.getUsers)
+
+router.post('/signUp', validation.signUp, controller.signUp);
+router.post('/validation', verifyUser);
+router.post("/forgotPass", verifyUser)
+router.post('/signIn', validation.signIn,controller.signIn)
+router.get('/users', controller.getUser)
 
 module.exports = router
