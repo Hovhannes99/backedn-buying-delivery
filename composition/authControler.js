@@ -1,5 +1,5 @@
 const User = require('../models/User')
-const Role = require('../models/Role')
+const Email = require('../models/Email')
 const bcrypt = require('bcryptjs')
 const mailer = require("./nodemailer");
 const numberGenerator = require("number-generator");
@@ -18,7 +18,6 @@ class authController {
          if (candidate){
              return res.status(400).json({message: "User already exist"})
          }
-            console.log("hereeee")
          // const userRole = await Role.findOne({value:"ADMIN"})
          const hashPassword = bcrypt.hashSync(password, 7);
          const hashCode = bcrypt.hashSync(`${generateVerificationCode}`)
