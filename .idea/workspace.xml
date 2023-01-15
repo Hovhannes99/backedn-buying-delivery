@@ -5,21 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f3e7266-4995-4375-8fe8-c3c784d6b4d0" name="Changes" comment="start BE">
-      <change afterPath="$PROJECT_DIR$/composition/user/verifyUser.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middleware/signUpVerify.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/Token.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/comparePasswords.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/createJWT.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/verifyJWT.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composition/user/forgotPass.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/Email.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composition/authControler.js" beforeDir="false" afterPath="$PROJECT_DIR$/composition/authControler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composition/nodemailer.js" beforeDir="false" afterPath="$PROJECT_DIR$/composition/nodemailer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/User.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/signUpVerify.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/signUpVerify.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Role.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/authRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/authRouter.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,8 +46,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "javascript.nodejs.core.library.configured.version": "16.15.1",
-    "javascript.nodejs.core.library.typings.version": "16.18.11",
+    "javascript.nodejs.core.library.configured.version": "18.13.0",
+    "javascript.nodejs.core.library.typings.version": "18.11.18",
     "last_opened_file_path": "C:/Users/test/Desktop/buying-market/backend-buying",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -113,6 +104,7 @@
       <workItem from="1672126487404" duration="5081000" />
       <workItem from="1673099405707" duration="8487000" />
       <workItem from="1673334617753" duration="31194000" />
+      <workItem from="1673703071564" duration="11511000" />
     </task>
     <task id="LOCAL-00001" summary="start BE">
       <created>1671724529561</created>
