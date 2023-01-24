@@ -4,13 +4,13 @@ const  comparePasswords  = require("../../utils/comparePasswords");
 
 const verifyUser = async (req, res) => {
     try {
-        const { token, email } = req.body;
+        const { verificationCode, email } = req.body;
         const user = await User.findOne({email});
         if (!user) {
             return res.status(404).json({ errors: [{ message: "User not found" }] });
         }
 
-        if (user.isVerified) {
+        if (user?.isVerified) {
             await Token.findOneAndDelete({ email });
 
             return res.status(200).json({message: {isVerified: true}})
@@ -22,7 +22,7 @@ const verifyUser = async (req, res) => {
             });
         }
 
-        const tokenIsMatching = await comparePasswords(token, tokenFromDB.token);
+        const tokenIsMatching = await comparePasswords(verificationCode, tokenFromDB?.token);
 
         if (!tokenIsMatching) {
             return res
@@ -30,7 +30,6 @@ const verifyUser = async (req, res) => {
                 .json({ errors: [{ token: "Token is not valid" }] });
         }
 
-        await Token.findOneAndDelete({ email });
 
         await User.findOneAndUpdate({ email }, { $set: { isVerified: true } });
         return res.status(200).json({message: {isVerified: true}})
