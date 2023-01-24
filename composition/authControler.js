@@ -1,27 +1,33 @@
 const User = require('../models/User')
-const Email = require('../models/Email')
 const bcrypt = require('bcryptjs')
 const mailer = require("./nodemailer");
-const numberGenerator = require("number-generator");
 const Token = require('../models/Token')
 const  comparePasswords  = require("../utils/comparePasswords");
 const createJWT = require("../utils/createJWT");
 const verifyJWT = require("../utils/verifyJWT");
 const { TOKEN_EXPIRY } = require("../config");
+const hashPassword = require("../utils/hashPassword");
+const generateRandomNumbers = require("../utils/generateRandomNumbers");
+const validateEmail = require("../utils/emailValidation");
 
 class authController {
     async signUp(req, res) {
-        const generateVerificationCode = numberGenerator.aleaRNGFactory(10).uInt32()
+
+        const generateVerificationCode = generateRandomNumbers()
         try{
          const {username, password, email, isVerified} = req.body
-         const candidate = await User.findOne({email});
+          const isCorrectEmail = validateEmail(email);
+         if (!isCorrectEmail){
+             return res.status(400).json({message: "Email is not correct"})
+         }
+            const candidate = await User.findOne({email});
          if (candidate){
              return res.status(400).json({message: "User already exist"})
          }
-         // const userRole = await Role.findOne({value:"ADMIN"})
-         const hashPassword = bcrypt.hashSync(password, 7);
+
+         const hashPass = hashPassword(password, 7);
          const hashCode = bcrypt.hashSync(`${generateVerificationCode}`)
-         const user = new User({username, password: hashPassword,email, role:"USER", isVerified});
+         const user = new User({username, password: hashPass,email, role:"USER", isVerified});
          const message = {
              from: "ggroupmarcket1001@gmail.com",
              to: email,
@@ -31,8 +37,10 @@ class authController {
         await mailer(message, res);
         await user.save();
         await new Token({email, token:hashCode}).save()
+        return res.status(200).json({data: {isSignUp:true}})
         }catch (e){
-            res.status(400).json({message:"Sign up Error"})
+            console.log(e, "eeee")
+            res.status(400).json({error:e})
         }
     }
     async signIn(req, res) {
@@ -61,7 +69,7 @@ class authController {
 
             const token = createJWT(user.email, user._id, TOKEN_EXPIRY, res);
             await verifyJWT(token, res);
-
+            await Token.findOneAndDelete({ email : user.email })
             res.status(200).json({ user, token });
         } catch (err) {
             res.status(500).json({ errors: [{ message: err.message }] });
