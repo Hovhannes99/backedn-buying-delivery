@@ -50,7 +50,7 @@ class authController {
             const user = await User.findOne({ email });
 
             if (!user) {
-                return res.status(404).json({ errors: [{ message: "User not found" }] });
+                return res.status(402).json({ errors: { message: "User not found" } });
             }
 
             if (!user.isVerified) {
@@ -64,7 +64,7 @@ class authController {
             if (!passwordIsCorrect) {
                 return res
                     .status(403)
-                    .json({ errors: [{ message: "Password is incorrect" }] });
+                    .json({ errors: { message: "Password or email is incorrect" }});
             }
 
             const token = createJWT(user.email, user._id, TOKEN_EXPIRY, res);
