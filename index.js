@@ -3,7 +3,11 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const exphbs = require("express-handlebars")
 const authRoutes = require('./routes/authRouter')
-const  PORT = process.env.PORT || 3000
+const  PORT = process.env.PORT || 3001
+const cors = require('cors')
+
+
+
 
 
 const app = express();
@@ -11,6 +15,7 @@ const hbs = exphbs.create({
     defaultLayout:"main",
     extname:"hbs"
 });
+app.use(cors())
 
 app.engine("hbs", hbs.engine);
 mongoose.set({
