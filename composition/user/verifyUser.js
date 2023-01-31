@@ -10,6 +10,7 @@ const verifyUser = async (req, res) => {
             return res.status(404).json({ errors: { message: "User not found" } });
         }
 
+
         if (user?.isVerified) {
             await Token.findOneAndDelete({ email });
 
@@ -25,6 +26,7 @@ const verifyUser = async (req, res) => {
         const tokenIsMatching = await comparePasswords(verificationCode, tokenFromDB?.token);
 
         if (!tokenIsMatching) {
+            await User.findOneAndDelete({email})
             return res
                 .status(401)
                 .json({ errors: { token: "Token is not valid" } });
