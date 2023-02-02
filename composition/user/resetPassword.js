@@ -9,14 +9,12 @@ const resetPassword = async (req, res) => {
         const user = await User.findOne({ email });
 
         if (!user) {
-            return res.status(404).json({ errors: [{ message: "User not found" }] });
+            return res.status(404).json({ message: "User not found" });
         }
 
         const tokenFromDB = await Token.findOne({ email });
         if (!tokenFromDB) {
-            return res.status(401).json({
-                errors: [{ message: "User does not have reset password token" }],
-            });
+            return res.status(401).json({ message: "User does not have reset password token" });
         }
 
         const hashedPassword = await hashPassword(newPassword, 7);
@@ -29,7 +27,7 @@ const resetPassword = async (req, res) => {
 
         res.status(200).json(updatedUser);
     } catch (err) {
-        res.status(500).json({ errors: [{ message: err.message }] });
+        res.status(500).json({ message: err.message });
     }
 };
 

@@ -35,7 +35,7 @@ async function start(){
               useUnifiedTopology: true
         });
         app.listen(PORT, ()=>{
-            console.log("server good")
+            console.log("server runs on port " + PORT)
         })
     }catch (e){
         console.log(e, "error")

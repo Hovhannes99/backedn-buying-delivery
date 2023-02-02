@@ -56,7 +56,7 @@ class authController {
             if (!user.isVerified) {
                 return res
                     .status(401)
-                    .json({ errors: [{ message: "Account is not verified" }] });
+                    .json({ errors: { message: "Account is not verified" } });
             }
 
             const passwordIsCorrect = await comparePasswords(password, user.password);
