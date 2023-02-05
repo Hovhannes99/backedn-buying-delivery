@@ -77,11 +77,21 @@ class authController {
     }
     async getUser(req, res){
         try {
-            res.json("we in to json");
+            const {token}  = req.body
+            if (token){
+               const decoding = await verifyJWT(token, res);
+                if (decoding._id){
+                    const user = await User.findOne({_id:decoding._id});
+                    return res.json({user});
+                }else {
+                   return res.json({ errors: { message: "wrong Idd" }})
+                }
+            }else {
+                res.json({message: "token is not correct"})
+            }
         }catch (error){
             res.json(error);
-            res.status(400).json({message:"Users Error"})
-
+           return res.status(400).json({message:"Users Error"})
         }
     }
 }
