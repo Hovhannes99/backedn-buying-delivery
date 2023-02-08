@@ -12,6 +12,6 @@ router.post('/validation', verifyUser);
 router.post("/forgotPass", emailValidation() ,forgotPass);
 router.post("/resetPass", resetPass() ,resetPassword);
 router.post('/signIn', signIn(), controller.signIn)
-router.get('/users', controller.getUser)
+router.get('/user', controller.getUser)
 
 module.exports = router

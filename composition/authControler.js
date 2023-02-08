@@ -46,7 +46,6 @@ class authController {
     async signIn(req, res) {
         try {
             const { email, password } = req.body;
-
             const user = await User.findOne({ email });
 
             if (!user) {
@@ -77,11 +76,22 @@ class authController {
     }
     async getUser(req, res){
         try {
-            res.json("we in to json");
+            const {token}  = req.headers
+            const notBearer = token.split(" ")[1];
+            if (notBearer){
+               const decoding = await verifyJWT(notBearer, res);
+                if (decoding._id){
+                    const user = await User.findOne({_id:decoding._id});
+                    return res.json({user});
+                }else {
+                   return res.json({ errors: { message: "wrong Idd" }})
+                }
+            }else {
+                res.json({ errors: {message: "token is not correct"}})
+            }
         }catch (error){
             res.json(error);
-            res.status(400).json({message:"Users Error"})
-
+           return res.status(400).json({message:"Users Error"})
         }
     }
 }
