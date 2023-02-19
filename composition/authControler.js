@@ -12,7 +12,6 @@ const validateEmail = require("../utils/emailValidation");
 
 class authController {
     async signUp(req, res) {
-
         const generateVerificationCode = generateRandomNumbers()
         try{
          const {username, password, email, isVerified} = req.body
@@ -39,7 +38,6 @@ class authController {
         await new Token({email, token:hashCode}).save()
         return res.status(200).json({data: {isSignUp:true}})
         }catch (e){
-            console.log(e, "eeee")
             res.status(400).json({error:e})
         }
     }
