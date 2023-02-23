@@ -2,8 +2,9 @@ const Product = require("../../models/Product");
 
 const getProductId = async (req, res)=>{
     try{
-        const { id } = req.body;
-        const product = await Product.findById({_id: id})
+        const { _id } = req.headers;
+
+        const product = await Product.findById({_id})
         if (product){
             return res.status(201).json(product)
         }
