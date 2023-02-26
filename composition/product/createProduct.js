@@ -4,13 +4,13 @@ const createProduct = async (req, res) => {
   try{
       const  {title,description, price,  isAvailable, variant  } = req.body;
       const { file } = req;
-      if (title && description && price && isAvailable && file.path && variant){
+      if (title && description && price && file.path && variant){
           const product = new Product({
               title,
               description,
               price,
               isAvailable,
-              imagesSrc: file.path,
+              imagesSrc: file?.path,
               variant
           });
           await product.save();
@@ -19,7 +19,7 @@ const createProduct = async (req, res) => {
           return  res.status(403).json({errors: { message: "should be complete all inputs", isCreated: false }})
       }
   }catch (e){
-      return res.status(500).json({errors: {message: e}})
+      return res.status(500).json({errors: {message: "Something goes wrong"}})
   }
 
 
