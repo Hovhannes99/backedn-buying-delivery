@@ -6,17 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="2f3e7266-4995-4375-8fe8-c3c784d6b4d0" name="Changes" comment="get user">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/19022023-161530 975-epic-wallpapers-jpg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/19022023-195354 464-epic-wallpapers-jpg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/19022023-195401 128-epic-wallpapers-jpg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/19022023-200144 604-epic-wallpapers-jpg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/19022023-200151 156-epic-wallpapers-jpg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/19022023-230438 864-alarmas_hogar.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/20022023-001532 388-alarmas_hogar.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/20022023-001533 932-alarmas_hogar.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/composition/product/createProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/composition/product/createProduct.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composition/product/editProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/composition/product/editProduct.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/upload.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/upload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Product.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Product.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,9 +43,9 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "javascript.nodejs.core.library.configured.version": "18.13.0",
-    "javascript.nodejs.core.library.typings.version": "18.13.0",
-    "last_opened_file_path": "E:/project/backedn-buying-delivery",
+    "javascript.nodejs.core.library.configured.version": "16.17.1",
+    "javascript.nodejs.core.library.typings.version": "16.18.13",
+    "last_opened_file_path": "C:/Users/pc/Desktop/diplomayin/backedn-buying-delivery",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -123,6 +115,7 @@
       <workItem from="1676823319662" duration="5515000" />
       <workItem from="1676830629916" duration="23729000" />
       <workItem from="1677337351290" duration="11264000" />
+      <workItem from="1677498732272" duration="13958000" />
     </task>
     <task id="LOCAL-00001" summary="start BE">
       <created>1671724529561</created>
