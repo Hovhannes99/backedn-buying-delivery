@@ -3,7 +3,7 @@ const Product = require("../../models/Product");
 
 const getAllProducts = async (req, res) => {
     try {
-        const { variant } = req.headers;
+        const { variant } = req.body;
         console.log(variant)
         const data = variant ? await Product.find({variant}): await Product.find() ;
         if (data){

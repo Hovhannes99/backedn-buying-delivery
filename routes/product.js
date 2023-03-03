@@ -11,7 +11,7 @@ const searchProduct = require("../composition/product/searchProduct");
 
 router.post('/create',upload.single('imagesSrc'), createProduct);
 router.get('/product', getProductId);
-router.get('/products', getAllProducts);
+router.post('/products', getAllProducts);
 router.put('/edit',editProduct);
 router.delete('/removeProduct', deleteProduct);
 router.get('/search', searchProduct);

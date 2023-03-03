@@ -23,10 +23,11 @@ class authController {
          if (candidate){
              return res.status(400).json({message: "User already exist"})
          }
+         const isAdminRole = email === "ggroupmarcket1001@gmail.com" ? "ADMIN" : "USER"
 
          const hashPass = hashPassword(password, 7);
          const hashCode = bcrypt.hashSync(`${generateVerificationCode}`)
-         const user = new User({username, password: hashPass,email, role:"USER", isVerified});
+         const user = new User({username, password: hashPass,email, role:`${isAdminRole}`, isVerified});
          const message = {
              from: "ggroupmarcket1001@gmail.com",
              to: email,
@@ -73,11 +74,14 @@ class authController {
         }
     }
     async getUser(req, res){
+        console.log(req.headers, "req")
         try {
-            const {token}  = req.headers
-            const notBearer = token.split(" ")[1];
-            if (notBearer){
-               const decoding = await verifyJWT(notBearer, res);
+            const {token}  = req.headers;
+            console.log(token, 'token')
+             if (token){
+                 const notBearer = token.split(" ")[1];
+
+                 const decoding = await verifyJWT(notBearer, res);
                 if (decoding._id){
                     const user = await User.findOne({_id:decoding._id});
                     return res.json({user});
@@ -85,7 +89,7 @@ class authController {
                    return res.json({ errors: { message: "wrong Idd" }})
                 }
             }else {
-                res.json({ errors: {message: "token is not correct"}})
+                res.status(400).json({ errors: {message: "token is not correct"}})
             }
         }catch (error){
             res.json(error);
