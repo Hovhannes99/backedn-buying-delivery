@@ -22,6 +22,14 @@ const Product = new Schema(
             type: String,
             require: true
         },
+        country:{
+          type: String,
+          require: true
+        },
+        flag:{
+            type: String,
+            require: true
+        },
         imagesSrc:{
            type:String,
            default:""

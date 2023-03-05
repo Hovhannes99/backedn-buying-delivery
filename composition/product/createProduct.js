@@ -2,16 +2,18 @@ const Product = require("../../models/Product");
 const createProduct = async (req, res) => {
 
   try{
-      const  {title,description, price,  isAvailable, variant  } = req.body;
+      const  {title,description, price,  isAvailable, variant, country, flag  } = req.body;
       const { file } = req;
-      if (title && description && price && file.path && variant){
+      if (title && description && price && file.path && variant &&  country){
           const product = new Product({
               title,
               description,
               price,
               isAvailable,
               imagesSrc: file?.path,
-              variant
+              variant,
+              country,
+              flag,
           });
           await product.save();
           return   res.status(201).json({data:{isCreated: true}})

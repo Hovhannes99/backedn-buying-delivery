@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f3e7266-4995-4375-8fe8-c3c784d6b4d0" name="Changes" comment="get user">
-      <change afterPath="$PROJECT_DIR$/composition/product/searchProduct.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composition/authControler.js" beforeDir="false" afterPath="$PROJECT_DIR$/composition/authControler.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composition/product/getAllProducts.js" beforeDir="false" afterPath="$PROJECT_DIR$/composition/product/getAllProducts.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/product.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,9 +43,9 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;18.13.0&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;18.13.0&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/project/backedn-buying-delivery&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;16.17.1&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;16.18.13&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/pc/Desktop/diplomayin/backedn-buying-delivery&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -113,8 +114,9 @@
       <workItem from="1676811908080" duration="5598000" />
       <workItem from="1676823319662" duration="5515000" />
       <workItem from="1676830629916" duration="23729000" />
-      <workItem from="1677337351290" duration="11519000" />
-      <workItem from="1677696144355" duration="5704000" />
+      <workItem from="1677337351290" duration="11264000" />
+      <workItem from="1677498732272" duration="13958000" />
+      <workItem from="1677836368832" duration="13430000" />
     </task>
     <task id="LOCAL-00001" summary="start BE">
       <created>1671724529561</created>
