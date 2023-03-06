@@ -74,10 +74,8 @@ class authController {
         }
     }
     async getUser(req, res){
-        console.log(req.headers, "req")
         try {
             const {token}  = req.headers;
-            console.log(token, 'token')
              if (token){
                  const notBearer = token.split(" ")[1];
 
