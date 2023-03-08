@@ -7,8 +7,9 @@ const Order = new Schema({
     address:{type:String,required:true},
     city:{type:String, required: true},
     count: {type:Number,  required:true},
-    phone: {type:Number, required: true},
-    status:{type:String, required:true}
+    phone: {type:String, required: true},
+    status:{type:String, required:true},
+    totalPrice: {type: Number, required: true}
 })
 
 
