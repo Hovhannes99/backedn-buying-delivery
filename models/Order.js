@@ -9,7 +9,9 @@ const Order = new Schema({
     count: {type:Number,  required:true},
     phone: {type:String, required: true},
     status:{type:String, required:true},
-    totalPrice: {type: Number, required: true}
+    totalPrice: {type: Number, required: true},
+    username:{type: String, required: true},
+    email:{type:String, required: true}
 })
 
 

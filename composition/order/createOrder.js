@@ -5,7 +5,7 @@ const mailer = require("../nodemailer");
 
 const createOrder = async (req, res) => {
     try{
-        const  {id, productId, city,  address, count, phone, email, totalPrice } = req.body;
+        const  {id, productId, city,  address, count, phone, email, totalPrice, username } = req.body;
 
         const product = await  Product.findById({_id: productId});
 
@@ -19,7 +19,9 @@ const createOrder = async (req, res) => {
                 city,
                 phone,
                 status: "PENDING",
-                totalPrice
+                totalPrice,
+                username,
+                email
             });
             const message = {
                 from: email,
