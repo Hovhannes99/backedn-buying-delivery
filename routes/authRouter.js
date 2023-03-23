@@ -13,5 +13,6 @@ router.post("/forgotPass", emailValidation() ,forgotPass);
 router.post("/resetPass", resetPass() ,resetPassword);
 router.post('/signIn', signIn(), controller.signIn)
 router.get('/user', controller.getUser)
+router.delete('/remove-user', controller.removeUser)
 
 module.exports = router

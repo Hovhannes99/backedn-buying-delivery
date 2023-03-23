@@ -7,7 +7,7 @@ const verifyUser = async (req, res) => {
         const { verificationCode, email } = req.body;
         const user = await User.findOne({email});
         if (!user) {
-            return res.status(404).json({ errors: { message: "User not found" } });
+            return res.status(404).json({ errors: { message: "USER_NOT_FOUND" } });
         }
 
 
@@ -27,9 +27,7 @@ const verifyUser = async (req, res) => {
 
         if (!tokenIsMatching) {
             await User.findOneAndDelete({email})
-            return res
-                .status(401)
-                .json({ errors: { token: "Token is not valid" } });
+            return res.status(401).json({ errors: { token: "TOKEN_NOT_VALID" } });
         }
 
 
