@@ -12,15 +12,15 @@ const forgotPass = async (req, res) => {
         const user = await User.findOne({email})
 
         if (!user){
-            return res.status(400).json({message:"email is not found"})
+            return res.status(400).json({message:"EMAIL_NOT_FOUND"})
         }
         const message = {
             from: "ggroupmarcket1001@gmail.com",
             to: email,
-            subscribe:"G-group, Congratulation you are registered",
-            text:`This is your confirmation code: ${generateVerificationCode}`,
+            subscribe:"G-group Ընկերություն",
+            text:`Սա ձեր հաստատման կոդը է: ${generateVerificationCode}`,
         }
-        const hashCode = bcrypt.hashSync(`${generateVerificationCode}`)
+         const hashCode = bcrypt.hashSync(`${generateVerificationCode}`)
          await new Token({email, token:hashCode}).save()
          await User.findOneAndUpdate({ email }, { $set: { isVerified: false } })
         await mailer(message, res);
