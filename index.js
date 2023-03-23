@@ -5,7 +5,7 @@ const exphbs = require("express-handlebars")
 const authRoutes = require('./routes/authRouter');
 const createProductRoutes = require('./routes/product');
 const createOrder = require('./routes/order')
-const  PORT = process.env.PORT || 3001
+const  PORT = process.env.PORT || "https://backend-bauying-delivery.vercel.app"
 const cors = require('cors')
 
 
