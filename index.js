@@ -18,7 +18,10 @@ const hbs = exphbs.create({
     defaultLayout:"main",
     extname:"hbs"
 });
-app.use(cors())
+app.use(cors({
+    origin:"https://backend-bauying-delivery.vercel.app",
+    optionsSuccessStatus: 200
+}))
 
 app.engine("hbs", hbs.engine);
 mongoose.set({
