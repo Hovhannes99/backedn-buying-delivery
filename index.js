@@ -5,7 +5,7 @@ const exphbs = require("express-handlebars")
 const authRoutes = require('./routes/authRouter');
 const createProductRoutes = require('./routes/product');
 const createOrder = require('./routes/order')
-const  PORT = process.env.PORT || "https://backend-bauying-delivery.vercel.app"
+const  PORT = process.env.PORT || 3000
 const cors = require('cors')
 
 
@@ -44,7 +44,7 @@ async function start(){
               useUnifiedTopology: true
         });
         app.listen(PORT, ()=>{
-            console.log("server runs on port " + PORT)
+            console.log("server runs on port" + PORT)
         })
     }catch (e){
         console.log(e, "error")
