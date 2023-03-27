@@ -4,8 +4,8 @@ const mongoose = require('mongoose');
 const exphbs = require("express-handlebars")
 const authRoutes = require('./routes/authRouter');
 const createProductRoutes = require('./routes/product');
-const createOrder = require('./routes/order')
-const  PORT = process.env.PORT || 3000
+const createOrder = require('./routes/order');
+const  PORT = process.env.PORT;
 const cors = require('cors')
 
 
